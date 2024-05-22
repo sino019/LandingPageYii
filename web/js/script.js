@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// window.addEventListener("load", function () {
-//   if (
-//     window.performance &&
-//     window.performance.navigation.type ===
-//       window.performance.navigation.TYPE_RELOAD
-//   ) {
-//     window.location.href = "/site/index";
-//   }
-// });
+window.addEventListener("load", function () {
+  if (
+    window.performance &&
+    window.performance.navigation.type ===
+      window.performance.navigation.TYPE_RELOAD
+  ) {
+    window.location.href = "/site/index";
+  }
+});

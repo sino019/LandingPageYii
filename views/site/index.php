@@ -4,13 +4,8 @@
 // <?= Yii::$app->user->isGuest ? 'Guest' : Yii::$app->user->identity->username 
 use app\models\Berita;
 use app\models\AgendaLppm;
-$agenda = AgendaLppm::findOne(1);
-$agenda2 = AgendaLppm::findOne(2);
-$agenda3 = AgendaLppm::findOne(3);
-
-$berita = Berita::findOne(5);
-$berita2 = Berita::findOne(6);
-$berita3= Berita::findOne(7);
+$agendas = AgendaLppm::find()->orderBy(['waktu' => SORT_DESC])->limit(6)->all();
+$beritaTerbaru = Berita::find()->orderBy(['Tanggal_Publikasi' => SORT_DESC])->limit(4)->all();
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);
 
 ?>
@@ -71,7 +66,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <div class="row">
                 <div class="col-md-8 mb-4">
                     <div class="row">
-                        <?php foreach ([$berita, $berita2, $berita3] as $beritaItem): ?>
+                        <?php
+                        
+                        foreach ($beritaTerbaru as $beritaItem): ?>
                         <div class="col-md-6 mb-4">
                             <div class="card h-100">
                                 <img src="<?= Yii::getAlias('@web/assets/img/unand1.jpg') ?>" class="card-img-top"
@@ -79,7 +76,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="card-title"><?= $beritaItem->Judul ?></h5>
                                     <p class="card-text flex-grow-1"><?= $beritaItem->Ringkasan ?></p>
-                                    <a href="<?= \yii\helpers\Url::to(['/site/berita1']) ?>"
+                                    <a href="<?= \yii\helpers\Url::to(['/site/berita', 'id' => $beritaItem->ID]) ?>"
                                         class="btn border mt-auto">Baca
                                         Selengkapnya</a>
                                 </div>
@@ -92,15 +89,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Berita Lainnya</h5>
-                            <ul class="list-unstyled">
+                            <ul class="">
                                 <?php
-                                $beritaLainnya = Berita::find()->orderBy(['Tanggal_Publikasi' => SORT_ASC])->limit(5)->all();
+                                $beritaLainnya = Berita::find()->orderBy(['Tanggal_Publikasi' => SORT_ASC])->limit(10)->all();
                                 foreach ($beritaLainnya as $berita): ?>
-                                <li>
+                                <li class="mb-2 border-bottom">
 
                                     <a href="<?= \yii\helpers\Url::to(['/site/berita', 'id' => $berita->ID]) ?>">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png"
-                                            alt="Waving Hand Icon" width="16" height="16">
+
                                         <?= $berita->Judul ?>
                                     </a>
                                 </li>
@@ -122,70 +118,29 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 </div>
             </div>
             <div class="row">
-                <?php if ($agenda): ?>
+                <?php
+                foreach ($agendas as $agendaItem): ?>
                 <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $agenda->kegiatan ?></h5>
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><?= $agendaItem->kegiatan ?></h5>
                             <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png"
-                                    alt="PIC Icon" width="16" height="16"> <strong>PIC:</strong> <?= $agenda->pic ?></p>
-                            <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
-                                    alt="Location Icon" width="16" height="16"> <strong>Lokasi:</strong>
-                                <?= $agenda->lokasi ?></p>
-                            <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
-                                    alt="Time Icon" width="16" height="16"> <strong>Waktu:</strong>
-                                <?= $agenda->waktu ?></p>
-                            <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828880.png"
-                                    alt="Notes Icon" width="16" height="16"> <strong>Catatan:</strong>
-                                <?= $agenda->catatan ?></p>
-                        </div>
-                    </div>
-                </div>
-                <?php endif; ?>
-
-                <?php if ($agenda2): ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $agenda2->kegiatan ?></h5>
-                            <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png"
-                                    alt="PIC Icon" width="16" height="16"> <strong>PIC:</strong> <?= $agenda2->pic ?>
+                                    alt="PIC Icon" width="16" height="16"> <strong>PIC:</strong> <?= $agendaItem->pic ?>
                             </p>
                             <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
                                     alt="Location Icon" width="16" height="16"> <strong>Lokasi:</strong>
-                                <?= $agenda2->lokasi ?></p>
+                                <?= $agendaItem->lokasi ?></p>
                             <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
                                     alt="Time Icon" width="16" height="16"> <strong>Waktu:</strong>
-                                <?= $agenda2->waktu ?></p>
-                            <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828880.png"
-                                    alt="Notes Icon" width="16" height="16"> <strong>Catatan:</strong>
-                                <?= $agenda2->catatan ?></p>
+                                <?= $agendaItem->waktu ?></p>
+                            <p class="card-text flex-grow-1"><img
+                                    src="https://cdn-icons-png.flaticon.com/512/1828/1828880.png" alt="Notes Icon"
+                                    width="16" height="16"> <strong>Catatan:</strong>
+                                <?= $agendaItem->catatan ?></p>
                         </div>
                     </div>
                 </div>
-                <?php endif; ?>
-
-                <?php if ($agenda3): ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $agenda3->kegiatan ?></h5>
-                            <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png"
-                                    alt="PIC Icon" width="16" height="16"> <strong>PIC:</strong> <?= $agenda3->pic ?>
-                            </p>
-                            <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
-                                    alt="Location Icon" width="16" height="16"> <strong>Lokasi:</strong>
-                                <?= $agenda3->lokasi ?></p>
-                            <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
-                                    alt="Time Icon" width="16" height="16"> <strong>Waktu:</strong>
-                                <?= $agenda3->waktu ?></p>
-                            <p class="card-text"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828880.png"
-                                    alt="Notes Icon" width="16" height="16"> <strong>Catatan:</strong>
-                                <?= $agenda3->catatan ?></p>
-                        </div>
-                    </div>
-                </div>
-                <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

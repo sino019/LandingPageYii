@@ -45,7 +45,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <div id="header">
         <header class="navbar navbar-expand-lg  navbar-light bg-white  py-3 border-bottom fixed-top">
             <div class="container">
-                <a href="<?= Yii::$app->homeUrl ?>" class="navbar-brand d-flex align-items-center">
+                <a href="/site/index?#hero" class="navbar-brand d-flex align-items-center">
                     <img src="<?= Yii::getAlias('@web/assets/img/hero.png') ?>" alt="Logo" width="50"
                         class="me-2 rounded ">
                     <span class="fs-4 brand text-dark"><?= Yii::$app->name ?></span>
