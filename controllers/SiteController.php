@@ -157,6 +157,26 @@ class SiteController extends Controller
     {
         return $this->render('penelitian2022');
     }
+    public function actionPenelitian2021()
+    {
+        return $this->render('penelitian2021');
+    }
+    public function actionPenelitian2020()
+    {
+        return $this->render('penelitian2020');
+    }
+    public function actionPengabdian()
+    {
+        return $this->render('pengabdian');
+    }
+    public function actionArtikel()
+    {
+        return $this->render('artikel');
+    }
+    public function actionHaki()
+    {
+        return $this->render('haki');
+    }
     
     
 }

@@ -41,13 +41,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 
 
+
     <div id="header">
-        <header class="navbar navbar-expand-lg bg-success navbar-dark py-3 border-bottom">
+        <header class="navbar navbar-expand-lg  navbar-light bg-white  py-3 border-bottom fixed-top">
             <div class="container">
                 <a href="<?= Yii::$app->homeUrl ?>" class="navbar-brand d-flex align-items-center">
-                    <img src="<?= Yii::getAlias('@web/assets/img/hero.png') ?>" alt="Logo" width="70"
+                    <img src="<?= Yii::getAlias('@web/assets/img/hero.png') ?>" alt="Logo" width="50"
                         class="me-2 rounded ">
-                    <span class="fs-4 brand"><?= Yii::$app->name ?></span>
+                    <span class="fs-4 brand text-dark"><?= Yii::$app->name ?></span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +61,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 TENTANG LPPM
                             </a>
-                            <ul class="dropdown-menu mt-md-4    " aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu    " aria-labelledby="navbarDropdown">
                                 <li class="dropdown-item"><a href="<?= \yii\helpers\Url::to(['/site/visimisi']) ?>">VISI
                                         DAN MISI</a></li>
                                 <li class="dropdown-item"><a
@@ -71,27 +72,27 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                             </ul>
 
                         </li>
-                        <li class="nav-item dropdown me-2">
-                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="/site/index?#berita">
                                 BERITA
                             </a>
-                            <ul class="dropdown-menu mt-md-4 " aria-labelledby="navbarDropdown">
-
-                                <li class="dropdown-item"><a
-                                        href="<?= \yii\helpers\Url::to(['/site/berita2024']) ?>">BERITA
-                                        2024</a></li>
-
-
-                            </ul>
-
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="/site/index?#agenda">
+                                AGENDA
+                            </a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a href="<?= \yii\helpers\Url::to(['/site/pengabdian']) ?>" class="nav-link">PENGABDIAN</a>
+                        </li>
+                        </li>
                         </li>
                         <li class="nav-item dropdown me-2">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 PENELITIAN
                             </a>
-                            <ul class="dropdown-menu mt-md-4 " aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu  " aria-labelledby="navbarDropdown">
                                 <li class="dropdown-item"><a
                                         href="<?= \yii\helpers\Url::to(['/site/penelitian2020']) ?>">TAHUN 2020</a></li>
                                 <li class="dropdown-item"><a
@@ -104,55 +105,19 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                             </ul>
                         </li>
 
-                        <li class="nav-item dropdown me-2">
-                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                PENGABDIAN
-                            </a>
-                            <ul class="dropdown-menu mt-md-4 " aria-labelledby="navbarDropdown">
-                                <li class="dropdown-item"><a
-                                        href="<?= \yii\helpers\Url::to(['/site/visimisi']) ?>">Pendidikan dan
-                                        Pelatihan</a></li>
-                                <li class="dropdown-item"><a
-                                        href="<?= \yii\helpers\Url::to(['/site/sejarah']) ?>">Kesehatan dan
-                                        Kesejahteraan</a></li>
-                                <li class="dropdown-item"><a
-                                        href="<?= \yii\helpers\Url::to(['/site/struktur']) ?>">Pengembangan Ekonomi</a>
-                                </li>
-                                <li class="dropdown-item"><a
-                                        href="<?= \yii\helpers\Url::to(['/site/struktur']) ?>">Lingkungan dan
-                                        Pertanian</a>
-                                </li>
-                                <li class="dropdown-item"><a
-                                        href="<?= \yii\helpers\Url::to(['/site/struktur']) ?>">Infrastruktur dan
-                                        Teknologi</a>
-                                </li>
 
-                            </ul>
 
-                        </li>
-                        <li class="nav-item dropdown me-2">
-                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                AGENDA
-                            </a>
-                            <ul class="dropdown-menu mt-md-4 " aria-labelledby="navbarDropdown">
-                                <li class="dropdown-item"><a
-                                        href="<?= \yii\helpers\Url::to(['/site/visimisi']) ?>">AGENDA 2024</a></li>
-                            </ul>
-
-                        </li>
 
                         <li class="nav-item dropdown me-2">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 PUBLIKASI
                             </a>
-                            <ul class="dropdown-menu mt-md-4 " aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu  " aria-labelledby="navbarDropdown">
                                 <li class="dropdown-item"><a
-                                        href="<?= \yii\helpers\Url::to(['/site/visimisi']) ?>">ARTIKEL</a></li>
-                                <li class="dropdown-item"><a
-                                        href="<?= \yii\helpers\Url::to(['/site/sejarah']) ?>">HAKI</a></li>
+                                        href="<?= \yii\helpers\Url::to(['/site/artikel']) ?>">ARTIKEL</a></li>
+                                <li class="dropdown-item"><a href="<?= \yii\helpers\Url::to(['/site/haki']) ?>">HAKI</a>
+                                </li>
 
                             </ul>
 
@@ -171,18 +136,20 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     </ul>
                 </div>
             </div>
-            <marquee behavior="scroll" direction="left">
-                <p>Email: info@lppm-unand.ac.id | Phone: +62 123 456 789</p>
-            </marquee>
+
         </header>
+        <!-- <marquee behavior="scroll" direction="left">
+            <p>Email: info@lppm-unand.ac.id | Phone: +62 123 456 789</p>
+        </marquee> -->
 
     </div>
-    </div>
 
     </div>
 
-    <main id="main" class="flex-shrink-0    " role="main" style="min-height: 100vh;">
-        <div class="container ">
+    </div>
+
+    <main id="main" class="flex-shrink-0      " role="main">
+        <div class="">
             <?php if (!empty($this->params['breadcrumbs'])): ?>
             <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
             <?php endif ?>
@@ -191,36 +158,30 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         </div>
     </main>
 
-    <footer id="footer" class="mt-auto py-3 bg-success text-light">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <h5>Contact</h5>
-                    <p>Email: info@lppm-unand.ac.id</p>
-                    <p>Phone: +62 123 456 789</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Social Media</h5>
-                    <a href="https://facebook.com/lppm.unand" target="_blank" class="text-light">Facebook</a><br>
-                    <a href="https://twitter.com/lppm_unand" target="_blank" class="text-light">Twitter</a><br>
-                    <a href="https://instagram.com/lppm.unand" target="_blank" class="text-light">Instagram</a>
-                </div>
-                <div class="col-md-4">
-                    <h5>Map</h5>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.548123456789!2d110.123456789!3d-7.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e123456789abcdef%3A0x123456789abcdef!2sLPPM%20UNAND!5e0!3m2!1sen!2sid!4v1234567890"
-                        width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-            <div class="row text-center mt-3">
+    <footer id="footer" class="mt-auto py-3 bg-dark text-light" style="font-size: 0.8rem;">
+        <div class="container text-center">
+            <div class="row">
                 <div class="col-12">
-                    <h5>Layanan</h5>
-                    <a href="<?= \yii\helpers\Url::to(['/site/layanan1']) ?>" class="text-light">Layanan 1</a><br>
-                    <a href="<?= \yii\helpers\Url::to(['/site/layanan2']) ?>" class="text-light">Layanan 2</a><br>
-                    <a href="<?= \yii\helpers\Url::to(['/site/layanan3']) ?>" class="text-light">Layanan 3</a>
+                    <p>Email: info@lppm-unand.ac.id | Phone: +62 123 456 789</p>
                 </div>
             </div>
-            <div class="row text-center mt-3">
+            <div class="row mt-2">
+                <div class="col-12">
+                    <a href="https://facebook.com/lppm.unand" target="_blank" class="text-light mx-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"
+                            style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="https://twitter.com/lppm_unand" target="_blank" class="text-light mx-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"
+                            style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="https://instagram.com/lppm.unand" target="_blank" class="text-light mx-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"
+                            style="width: 24px; height: 24px;">
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-2">
                 <div class="col-12">
                     &copy; LPPM UNAND <?= date('Y') ?>
                 </div>

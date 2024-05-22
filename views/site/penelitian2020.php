@@ -4,7 +4,7 @@ use app\models\Penelitian;
 use yii\widgets\LinkPager;
 use yii\data\Pagination;
 
-$query = Penelitian::find()->where(['like', 'tanggal_selesai', '2022']);
+$query = Penelitian::find()->where(['like', 'tanggal_selesai', '2020']);
 $countQuery = clone $query;
 $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
 $penelitianList = $query->offset($pages->offset)
@@ -17,7 +17,7 @@ $penelitianList = $query->offset($pages->offset)
 
     <div class="hero-section pt-5">
 
-        <h1>Penelitian 2022</h1>
+        <h1>Penelitian 2020</h1>
 
         <div class="penelitian-section pt-5">
 
